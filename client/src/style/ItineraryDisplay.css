@@ -1,0 +1,188 @@
+.itinerary-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Header */
+  .trip-header {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    color: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  
+  .trip-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .trip-meta span {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    font-size: 0.9rem;
+    color: #bfdbfe;
+  }
+  
+  .trip-meta svg {
+    margin-right: 0.5rem;
+  }
+  
+  .trip-actions button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    margin-left: 0.5rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .trip-actions button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .trip-actions svg {
+    margin-right: 0.5rem;
+  }
+  
+  /* Overview Cards */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .overview-card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+  }
+  
+  .overview-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Day Navigation */
+  .day-switcher {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .day-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    background: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .day-button.active {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  .day-button:hover {
+    background: #e5e7eb;
+  }
+  
+  /* Activity Card */
+  .activity-card {
+    background: #f9fafb;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .activity-icon {
+    background: #dbeafe;
+    border-radius: 9999px;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .activity-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .activity-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .activity-tip {
+    background: #eff6ff;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    color: #1e40af;
+  }
+  
+  .favorite-button {
+    border: none;
+    border-radius: 9999px;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .favorite-button.favorited {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .favorite-button:not(.favorited) {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+  }
+  
+  .favorite-button:hover {
+    background-color: #e5e7eb;
+  }
+  
+  /* Summary */
+  .trip-summary {
+    background: linear-gradient(to right, #ecfdf5, #e0f2fe);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .trip-summary h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .trip-summary .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  

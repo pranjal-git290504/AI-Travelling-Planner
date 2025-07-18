@@ -1,0 +1,498 @@
+/* General Page */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background: linear-gradient(to bottom right, #ebf8ff, #f3e8ff); */
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-16 { margin-bottom: 4rem; }
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+h1 span {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraph */
+p {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.hero-button {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background: linear-gradient(to right, #1d4ed8, #6b21a8);
+}
+
+.secondary-button {
+  background: white;
+  color: #4b5563;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.secondary-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Feature Cards */
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.feature-card {
+  text-align: center;
+  padding: 1rem;
+}
+
+.feature-icon {
+  background: linear-gradient(to right, #ebf8ff, #f3e8ff);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testimonial-avatar {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.testimonial-location {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.testimonial-rating {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  color: #374151;
+  font-style: italic;
+}
+
+/* Icon Styles */
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Responsive spacing helpers (optional) */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+
+
+
+
+
+
+/* ============================= */
+/*        STATS SECTION         */
+/* ============================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+} 
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} 
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  margin-left: 8rem;
+}
+
+/* Large stat numbers */
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Stat labels */
+.stat-label {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* Color variants */
+.stat-blue {
+  color: #2563eb;
+}
+
+.stat-purple {
+  color: #7c3aed;
+}
+
+.stat-green {
+  color: #059669;
+}
+
+.stat-orange {
+  color: #ea580c;
+}
+
+
+
+/* ============================= */
+/*     POPULAR DESTINATIONS     */
+/* ============================= */
+
+.destinations-section {
+  background-color: #f9fafb;
+  padding: 4rem 1rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+/* Destination Grid Layout */
+.destination-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Destination Card */
+.destination-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.destination-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card-content {
+  padding: 1.5rem;
+}
+
+/* Header inside card */
+.destination-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.destination-info {
+  display: flex;
+  align-items: center;
+}
+
+/* .destination-image {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+} */
+
+.destination-city {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.destination-country {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Right side meta info */
+.destination-meta {
+  text-align: right;
+}
+
+.destination-meta-label {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.destination-meta-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* CTA Button */
+.destination-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.destination-button:hover {
+  background-color: #dbeafe;
+}
+
+.destination-image {
+  width: 70px;
+  height: 90px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.destination-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+
+/* ============================= */
+/*         CTA SECTION          */
+/* ============================= */
+
+.cta-section {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  padding: 4rem 1rem;
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cta-subtext {
+  font-size: 1.125rem;
+  color: #dbeafe;
+  margin-bottom: 2rem;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+  }
+}
+
+.cta-button-primary {
+  background-color: white;
+  color: #2563eb;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-button-primary:hover {
+  background-color: #f9fafb;
+}
+
+.cta-button-secondary {
+  background-color: transparent;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  border: 2px solid white;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+
+
+
+/* ============================= */
+/*         FORM PAGE VIEW       */
+/* ============================= */
+
+.form-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 2rem 1rem;
+}
+
+.form-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.form-back-button-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-back-button {
+  color: #2563eb;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.form-back-button:hover {
+  color: #1d4ed8;
+}

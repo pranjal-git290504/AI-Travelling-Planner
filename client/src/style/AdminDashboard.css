@@ -1,0 +1,66 @@
+.admin-dashboard-root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-dashboard-root h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.admin-dashboard-root h2 {
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard-root button {
+  padding: 8px 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.admin-dashboard-root button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.admin-dashboard-root button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.admin-dashboard-root table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-dashboard-root th,
+.admin-dashboard-root td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-dashboard-root th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.admin-dashboard-root td button {
+  background-color: #e74c3c;
+}
+
+.admin-dashboard-root td button:hover:not(:disabled) {
+  background-color: #c0392b;
+}
