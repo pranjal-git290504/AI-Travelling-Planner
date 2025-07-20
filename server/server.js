@@ -31,15 +31,6 @@ app.use('/api/trips', tripRoutes);
 app.use('/api/gemini', geminiRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Serve static assets if in production
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/dist')));
-  
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
-//   });
-// }
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
