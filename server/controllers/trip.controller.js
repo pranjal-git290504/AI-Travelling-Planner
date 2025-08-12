@@ -1,4 +1,5 @@
 const Trip = require('../models/trip.model');
+const mongoose = require('mongoose');
 
 // @desc    Get all trips for a user
 // @route   GET /api/trips
@@ -21,6 +22,11 @@ const getUserTrips = async (req, res) => {
 // @access  Private
 const getTripById = async (req, res) => {
   try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid trip ID format' });
+    }
+
     const trip = await Trip.findOne({
       _id: req.params.id,
       userId: req.user._id,
@@ -33,11 +39,6 @@ const getTripById = async (req, res) => {
     res.json(trip);
   } catch (error) {
     console.error('Get trip by ID error:', error);
-    
-    if (error.kind === 'ObjectId') {
-      return res.status(404).json({ message: 'Trip not found, invalid ID format' });
-    }
-    
     res.status(500).json({ message: 'Error fetching trip', error: error.message });
   }
 };
@@ -83,6 +84,11 @@ const createTrip = async (req, res) => {
 // @access  Private
 const updateTrip = async (req, res) => {
   try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid trip ID format' });
+    }
+
     const trip = await Trip.findOne({
       _id: req.params.id,
       userId: req.user._id,
@@ -117,11 +123,6 @@ const updateTrip = async (req, res) => {
     res.json(updatedTrip);
   } catch (error) {
     console.error('Update trip error:', error);
-    
-    if (error.kind === 'ObjectId') {
-      return res.status(404).json({ message: 'Trip not found, invalid ID format' });
-    }
-    
     res.status(400).json({ message: 'Error updating trip', error: error.message });
   }
 };
@@ -131,6 +132,11 @@ const updateTrip = async (req, res) => {
 // @access  Private
 const deleteTrip = async (req, res) => {
   try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid trip ID format' });
+    }
+
     const trip = await Trip.findOne({
       _id: req.params.id,
       userId: req.user._id,
@@ -144,11 +150,6 @@ const deleteTrip = async (req, res) => {
     res.json({ message: 'Trip deleted successfully' });
   } catch (error) {
     console.error('Delete trip error:', error);
-    
-    if (error.kind === 'ObjectId') {
-      return res.status(404).json({ message: 'Trip not found, invalid ID format' });
-    }
-    
     res.status(500).json({ message: 'Error deleting trip', error: error.message });
   }
 };
@@ -158,6 +159,11 @@ const deleteTrip = async (req, res) => {
 // @access  Private
 const updateTripChecklist = async (req, res) => {
   try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid trip ID format' });
+    }
+
     const trip = await Trip.findOne({
       _id: req.params.id,
       userId: req.user._id,
@@ -178,11 +184,6 @@ const updateTripChecklist = async (req, res) => {
     }
   } catch (error) {
     console.error('Update trip checklist error:', error);
-    
-    if (error.kind === 'ObjectId') {
-      return res.status(404).json({ message: 'Trip not found, invalid ID format' });
-    }
-    
     res.status(400).json({ message: 'Error updating trip checklist', error: error.message });
   }
 };

@@ -1,0 +1,7 @@
+organization=pranjal-git290504
+projectKey=pranjal-git290504_AI-Travelling-Planner
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.66148
+dashboardUrl=https://sonarcloud.io/dashboard?id=pranjal-git290504_AI-Travelling-Planner
+ceTaskId=AZidvho1uzTIRuWbaRZ6
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZidvho1uzTIRuWbaRZ6

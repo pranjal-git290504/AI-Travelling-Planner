@@ -1,0 +1,35 @@
+{
+  "name": "ai-travelling-planner",
+  "version": "1.0.0",
+  "description": "AI-powered travel planning application",
+  "private": true,
+  "scripts": {
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm run install:client && npm run install:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build:client": "cd client && npm run build",
+    "lint:client": "cd client && npm run lint",
+    "lint:server": "cd server && npm run lint",
+    "lint:all": "npm run lint:client && npm run lint:server",
+    "sonar": "sonar-scanner",
+    "sonar:local": "sonar-scanner -Dproject.settings=sonar-project-local.properties",
+    "sonar:test": "sonar-scanner -Dproject.settings=sonar-minimal.properties",
+    "test:all": "cd client && npm test && cd ../server && npm test",
+    "start:server": "cd server && npm start"
+  },
+  "keywords": [
+    "travel",
+    "planner",
+    "ai",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "pranjal-git290504",
+  "license": "ISC",
+  "devDependencies": {
+    "sonarqube-scanner": "^4.2.2"
+  }
+}
