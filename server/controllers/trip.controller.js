@@ -1,12 +1,37 @@
 const Trip = require('../models/trip.model');
 const mongoose = require('mongoose');
 
+// Helper function to sanitize and validate ObjectId
+const sanitizeObjectId = (id) => {
+  if (!id || typeof id !== 'string') {
+    return null;
+  }
+  
+  // Remove any potential injection characters
+  const sanitized = id.replace(/[^a-fA-F0-9]/g, '');
+  
+  // Validate ObjectId format
+  if (!mongoose.Types.ObjectId.isValid(sanitized)) {
+    return null;
+  }
+  
+  return sanitized;
+};
+
 // @desc    Get all trips for a user
 // @route   GET /api/trips
 // @access  Private
 const getUserTrips = async (req, res) => {
   try {
-    const trips = await Trip.find({ userId: req.user._id })
+    // Sanitize user ID
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
+    const trips = await Trip.find({ 
+      userId: new mongoose.Types.ObjectId(sanitizedUserId)
+    })
       .sort({ createdAt: -1 })
       .select('-__v');
     
@@ -22,14 +47,21 @@ const getUserTrips = async (req, res) => {
 // @access  Private
 const getTripById = async (req, res) => {
   try {
-    // Validate ObjectId format
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    // Sanitize and validate the trip ID
+    const sanitizedTripId = sanitizeObjectId(req.params.id);
+    if (!sanitizedTripId) {
       return res.status(400).json({ message: 'Invalid trip ID format' });
     }
 
+    // Sanitize user ID as well
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
     const trip = await Trip.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
+      _id: new mongoose.Types.ObjectId(sanitizedTripId),
+      userId: new mongoose.Types.ObjectId(sanitizedUserId),
     }).select('-__v');
 
     if (!trip) {
@@ -48,6 +80,12 @@ const getTripById = async (req, res) => {
 // @access  Private
 const createTrip = async (req, res) => {
   try {
+    // Sanitize user ID
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
     const {
       destination,
       dates,
@@ -59,9 +97,9 @@ const createTrip = async (req, res) => {
       checklist,
     } = req.body;
 
-    // Create the trip with the user ID from the auth middleware
+    // Create the trip with the sanitized user ID
     const trip = await Trip.create({
-      userId: req.user._id,
+      userId: new mongoose.Types.ObjectId(sanitizedUserId),
       destination,
       dates,
       duration,
@@ -84,14 +122,21 @@ const createTrip = async (req, res) => {
 // @access  Private
 const updateTrip = async (req, res) => {
   try {
-    // Validate ObjectId format
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    // Sanitize and validate the trip ID
+    const sanitizedTripId = sanitizeObjectId(req.params.id);
+    if (!sanitizedTripId) {
       return res.status(400).json({ message: 'Invalid trip ID format' });
     }
 
+    // Sanitize user ID
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
     const trip = await Trip.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
+      _id: new mongoose.Types.ObjectId(sanitizedTripId),
+      userId: new mongoose.Types.ObjectId(sanitizedUserId),
     });
 
     if (!trip) {
@@ -132,21 +177,28 @@ const updateTrip = async (req, res) => {
 // @access  Private
 const deleteTrip = async (req, res) => {
   try {
-    // Validate ObjectId format
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    // Sanitize and validate the trip ID
+    const sanitizedTripId = sanitizeObjectId(req.params.id);
+    if (!sanitizedTripId) {
       return res.status(400).json({ message: 'Invalid trip ID format' });
     }
 
+    // Sanitize user ID
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
     const trip = await Trip.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
+      _id: new mongoose.Types.ObjectId(sanitizedTripId),
+      userId: new mongoose.Types.ObjectId(sanitizedUserId),
     });
 
     if (!trip) {
       return res.status(404).json({ message: 'Trip not found or you do not have access' });
     }
 
-    await Trip.deleteOne({ _id: req.params.id });
+    await Trip.deleteOne({ _id: new mongoose.Types.ObjectId(sanitizedTripId) });
     res.json({ message: 'Trip deleted successfully' });
   } catch (error) {
     console.error('Delete trip error:', error);
@@ -159,14 +211,21 @@ const deleteTrip = async (req, res) => {
 // @access  Private
 const updateTripChecklist = async (req, res) => {
   try {
-    // Validate ObjectId format
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    // Sanitize and validate the trip ID
+    const sanitizedTripId = sanitizeObjectId(req.params.id);
+    if (!sanitizedTripId) {
       return res.status(400).json({ message: 'Invalid trip ID format' });
     }
 
+    // Sanitize user ID
+    const sanitizedUserId = sanitizeObjectId(req.user._id.toString());
+    if (!sanitizedUserId) {
+      return res.status(401).json({ message: 'Invalid user session' });
+    }
+
     const trip = await Trip.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
+      _id: new mongoose.Types.ObjectId(sanitizedTripId),
+      userId: new mongoose.Types.ObjectId(sanitizedUserId),
     });
 
     if (!trip) {
