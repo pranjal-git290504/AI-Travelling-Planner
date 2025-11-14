@@ -36,14 +36,22 @@ const Dashboard = ({
   onLogout,
   adminButton,
 }) => {
-  // Prevent rendering if not logged in
+  // Prevent rendering if not logged in — render a themed login prompt
   if (!currentUser) {
     return (
-      <div
-        className="dashboard-root"
-        style={{ textAlign: "center", paddingTop: "10%" }}
-      >
-        <p>You must be logged in to view your dashboard.</p>
+      <div className="dashboard-root">
+        <div className="login-prompt">
+          <Globe size={54} color="#FF6B6B" />
+          <h2>Welcome to Travel Planner</h2>
+          <p className="login-prompt-sub">
+            You must be logged in to view your dashboard.
+          </p>
+          <div className="login-prompt-actions">
+            <button className="plan-trip-button" onClick={onCreateTrip}>
+              <Plus /> Plan New Trip
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -73,8 +81,10 @@ const Dashboard = ({
   const sortedTrips = [...filteredTrips].sort((a, b) => {
     switch (sortBy) {
       case "recent":
-        return new Date(b.createdAt) - new Date(b.createdAt);
+        // newest first
+        return new Date(b.createdAt) - new Date(a.createdAt);
       case "upcoming":
+        // earliest upcoming first
         return new Date(a.dates.startDate) - new Date(b.dates.startDate);
       case "alphabetical":
         return a.destination.city.localeCompare(b.destination.city);
@@ -86,9 +96,9 @@ const Dashboard = ({
   if (loading) {
     return (
       <div className="dashboard-root">
-        <div style={{ textAlign: "center", paddingTop: "10%" }}>
+        <div className="loading-container">
           <div className="spinner" />
-          <p>Loading your trips...</p>
+          <p className="loading-text">Loading your trips...</p>
         </div>
       </div>
     );
@@ -113,11 +123,7 @@ const Dashboard = ({
               <Plus /> Plan New Trip
             </button>
             {currentUser && (
-              <button
-                className="logout-button"
-                onClick={onLogout}
-                style={{ marginLeft: "1rem" }}
-              >
+              <button className="logout-button" onClick={onLogout}>
                 <LogOut /> Logout
               </button>
             )}
@@ -142,7 +148,7 @@ const Dashboard = ({
         </div>
         <div className="search-filter-bar">
           <div className="search-filter-content">
-            <div style={{ flex: 1, position: "relative" }}>
+            <div className="search-wrapper">
               <Search className="search-icon" />
               <input
                 className="search-input"
@@ -173,6 +179,20 @@ const Dashboard = ({
           </div>
         </div>
         <div className="trip-grid">
+          {sortedTrips.length === 0 && (
+            <div className="empty-state">
+              <h3>No trips yet</h3>
+              <p>
+                Start planning your next adventure — add your first trip now.
+              </p>
+              <button
+                className="plan-trip-button primary"
+                onClick={onCreateTrip}
+              >
+                <Plus /> Plan New Trip
+              </button>
+            </div>
+          )}
           {sortedTrips.map((trip) => (
             <div key={trip.id} className="trip-card">
               <div className="trip-card-body">
