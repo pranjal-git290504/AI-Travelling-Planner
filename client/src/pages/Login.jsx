@@ -33,12 +33,14 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="auth-container">
+      <div className="auth-blob auth-blob-1"></div>
+      <div className="auth-blob auth-blob-2"></div>
       <div className="auth-card">
         <div className="auth-header">
-          <div className="auth-icon-wrapper">
-            <LogIn className="auth-icon" />
-          </div>
-          <h1 className="auth-title">Welcome Back!</h1>
+          <h1 className="auth-title">
+            Welcome <br />
+            <span className="gradient-text">Back!</span>
+          </h1>
           <p className="auth-subtitle">
             Sign in to continue planning your amazing trips.
           </p>
