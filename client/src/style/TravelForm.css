@@ -182,9 +182,11 @@
 
 .travel-form-card {
   background: #fff;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  padding:  1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 36px rgba(20,20,30,0.06);
+  border: 1px solid rgba(232,237,242,0.9);
+  position: relative;
 }
 
 /* Header */
@@ -194,7 +196,7 @@
 }
 
 .form-icon-wrapper {
-  background-color: #dbeafe;
+  background-color: rgba(255,107,107,0.12);
   padding: 0.75rem;
   border-radius: 9999px;
   display: inline-flex;
@@ -204,15 +206,15 @@
 }
 
 .form-icon {
-  color: #2563eb;
+  color: var(--primary, #FF6B6B);
   width: 2rem;
   height: 2rem;
 }
 
 .form-title {
   font-size: 1.75rem;
-  font-weight: 700;
-  color: #1f2937;
+  font-weight: 800;
+  color: #111827;
   margin-bottom: 0.25rem;
 }
 
@@ -221,12 +223,25 @@
   font-size: 0.95rem;
 }
 
+/* Decorative accent bar at top of card */
+.travel-form-accent {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--primary, #FF6B6B), var(--secondary, #4ECDC4), var(--accent, #FFE66D));
+  z-index: 3;
+}
+
 /* Sections */
 .form-section {
-  background: #f9fafb;
-  padding: 1.5rem;
+  background: #fbfdff;
+  /* padding: 0.5rem; */
+  margin-top: 1.5rem;
   border-radius: 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .form-section-header {
@@ -316,7 +331,7 @@ gmp-place-autocomplete::part(input) {
 .tag-button {
   padding: 0.65rem 1rem;
   background: white;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid #e6e9ee;
   border-radius: 0.75rem;
   font-size: 0.9rem;
   color: #374151;
@@ -334,30 +349,32 @@ gmp-place-autocomplete::part(input) {
 }
 
 .tag-button.selected {
-  background: #2563eb;
+  background: linear-gradient(90deg, var(--primary, #FF6B6B), #FF8A7A);
   color: #fff;
-  border-color: #2563eb;
+  border-color: rgba(255,107,107,0.16);
 }
 
 /* Submit Button */
 .plan-button {
-  background: #2563eb;
+  background: linear-gradient(90deg, var(--primary, #FF6B6B), #FF8A7A);
   color: white;
-  font-weight: 600;
-  padding: 0.9rem 1.75rem;
+  font-weight: 800;
+  padding: 0.9rem 1.25rem;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 1rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background-color 0.3s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 12px 30px rgba(255,107,107,0.12);
 }
 
-.plan-button:hover {
-  background: #1d4ed8;
+.plan-button:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(255,107,107,0.16);
 }
 
 /* Spinner (optional loading state) */

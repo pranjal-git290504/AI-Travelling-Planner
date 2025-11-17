@@ -315,9 +315,6 @@ const TravelForm = ({ addTrip, navigateToTrip, trips, updateTrip }) => {
     <div className="travel-form-wrapper">
       <div className="travel-form-card">
         <div className="form-header">
-          <div className="form-icon-wrapper">
-            <Plane className="form-icon" />
-          </div>
           <h2 className="form-title">Plan Your Perfect Trip</h2>
           <p className="form-subtitle">
             Let AI create a personalized itinerary just for you
